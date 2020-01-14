@@ -5,7 +5,7 @@ const app = express(); //function for acess routes
 
 // when the user to access route 'localhost:3333/' a function will be executed
 app.get('/', (req, res) => {
-  return  res.json({ message: 'Hello OmniStack'}); // respond of static form with object Json, but can be other types (image, text, ...). require nodemon library for respond dynamically
+  return  res.json({ message: 'Hello Dev'}); // respond of static form with object Json, but can be other types (image, text, ...). require nodemon library for respond dynamically
 } ); 
 
 
