@@ -8,6 +8,11 @@ module.exports = {
     const {latitude, longitude, techs} = req.query;
     const techsArray = parseStringAsArray(techs);
     
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> features
     // find all devs within 10 km and filter by techs
     const devs = await Dev.find({
       techs: {
