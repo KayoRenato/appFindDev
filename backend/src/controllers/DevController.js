@@ -1,8 +1,18 @@
 const axios = require('axios'); //library that allows you to make API requests
 const Dev = require('../models/Dev') // import schema from  Dev file for create data in database MongoDB 
+const parseStringAsArray = require('../utils/parseStringAsArray'); //function to convert a string as array
+
+// controllers have a maximum of 5 functions: index, show, store, update, destroy
 
 // named function required in the Dev file that registers a user in the database
 module.exports = {
+  async index(req, res){
+    
+    const devs = await Dev.find();
+
+    return res.json(devs);
+  },
+
   async store(req,res){
     const {github_username, techs, latitude, longitude} = req.body;
   
@@ -18,7 +28,7 @@ module.exports = {
       const { name = login, avatar_url, bio } = apiRes.data;
       
       // the techs on Dev.js. are an array of strings, so you must split the string when showing ',' (.split) and removing empty space (.map and .trim)
-      const techsArray = techs.split(',').map(item => item.trim());
+      const techsArray =  parseStringAsArray(techs);
       
       // assigning the request latitudes and longitudes to the database schema
       const location = {

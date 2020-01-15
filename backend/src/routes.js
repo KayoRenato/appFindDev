@@ -1,6 +1,14 @@
 const {Router} = require('express'); //library available to create routes for app
 const routes = Router();
 const DevController = require('./controllers/DevController'); //object imported from DevController file with persistent data in MongoDB database
+const SearchController = require('./controllers/SearchController'); //object imported from SearchController file with persistent data in MongoDB database
+
+routes.get('/devs', DevController.index);
+routes.post('/devs', DevController.store);
+routes.get('/search', SearchController.index);
+
+module.exports = routes; //provide routes por other files
+
 
 // HTTP METHODS: GET, PUT, POST, DELETE
 
@@ -27,6 +35,3 @@ const DevController = require('./controllers/DevController'); //object imported 
 */
 
 // third route created - to create an user passing your information through json in body
-routes.post('/devs', DevController.store);
-
-module.exports = routes; //provide routes por other files
