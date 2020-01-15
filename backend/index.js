@@ -4,7 +4,10 @@ const app = express(); //function for acess routes
 
 app.use(express.json()); //  The requests 'PUT' and 'POST' respond through json format and as the application native not understand format json, so is necessary to registry this format on request express.
 
-mongoose.connect('mongodb+srv://kayo:m0ng0_081187@cluster0-glex1.mongodb.net/week10?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://kayo:m0ng0_081187@cluster0-glex1.mongodb.net/week10?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true 
+});
 // check user, password and change default database name 'test'
 
 // HTTP METHODS: GET, PUT, POST, DELETE
