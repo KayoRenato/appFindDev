@@ -5,8 +5,6 @@ const routes = require('./routes'); //import routes from file routes.js
 
 const app = express(); //function for acess routes
 
-
-
 // MongoDB Atlas (noSQL Cloud)
 // check user, password and change default database name 'test'
 mongoose.connect('mongodb+srv://kayo:m0ng0_081187@cluster0-glex1.mongodb.net/week10?retryWrites=true&w=majority', {
