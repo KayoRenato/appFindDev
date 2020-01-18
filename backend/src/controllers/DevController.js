@@ -8,7 +8,7 @@ const parseStringAsArray = require('../utils/parseStringAsArray'); //function to
 module.exports = {
   async index(req, res){
     
-    const devs = await Dev.find();
+    const devs = await Dev.find(); 
 
     return res.json(devs);
   },
@@ -17,7 +17,7 @@ module.exports = {
     const {github_username, techs, latitude, longitude} = req.body;
   
     //verify existence of username in database
-    let dev = await Dev.findOne({github_username}); // ??? WHY SEARCH DATA IN 'Dev.js' ???
+    let dev = await Dev.findOne({github_username});
 
     if (!dev){
 
