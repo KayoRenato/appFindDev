@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Routes from './src/routes';
 
