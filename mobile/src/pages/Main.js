@@ -55,6 +55,7 @@ function Main({navigation}){
   }
 
   function handledRegionChanged(region){
+
     setCurrentRegion(region);
   }
 
