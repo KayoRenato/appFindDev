@@ -1,7 +1,7 @@
 const axios = require('axios'); //library that allows you to make API requests
 const Dev = require('../models/Dev') // import schema from  Dev file for create data in database MongoDB 
 const parseStringAsArray = require('../utils/parseStringAsArray'); //function to convert a string as array
-const { findConnections } = require('../websocket');
+const { findConnections, sendMessage } = require('../websocket');
 // controllers have a maximum of 5 functions: index, show, store, update, destroy
 
 // named function required in the Dev file that registers a user in the database
@@ -55,7 +55,7 @@ module.exports = {
         techsArray,
       )
 
-      console.log(sendSocketMessageTo);
+      sendMessage(sendSocketMessageTo, 'new-dev', dev);
     }
 
     return  res.json(dev);

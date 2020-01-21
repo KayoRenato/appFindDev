@@ -4,6 +4,10 @@ import socketio from 'socket.io-client';
    autoConnect: false,
  });
 
+ function subscribeToNewDevs(subscribeFunction){
+   socket.on('new-dev', subscribeFunction);
+ }
+
  function connect(latitude, longitude, techs) {
    socket.io.opts.query = {
     latitude,
@@ -25,4 +29,5 @@ import socketio from 'socket.io-client';
  export {
    connect,
    disconnect,
+   subscribeToNewDevs,
  }
